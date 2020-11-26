@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>咕咕语翻译器</title>
 </head>
 <body>
-    
+    <textarea id="t1" rows="6" cols="30"></textarea>
+    <textarea id="t2" rows="6" cols="30"></textarea>
+    <button onclick="en2gu()">翻译</button>
+
+    <script lang="javascript">
+        function en2gu()
+        {
+            var s1 = document.getElementById("t1").value;
+            var s2 = "";
+            for (var i=0;i<s1.length;i++)
+            {
+                switch (s1[i])
+                {
+                    case 'a': case 'A': s2 += "嗝咕 "; break;
+                    case 'b': s2 += "咕嗝嗝嗝 "; break;
+                    case 'c': s2 += "咕嗝咕嗝 "; break;
+                    case 'd': s2 += "咕嗝嗝 "; break;
+                    case 'e': s2 += "嗝 "; break;
+
+                    case 'f': s2 += "嗝嗝咕嗝 "; break;
+                    case 'g': s2 += "咕咕嗝 "; break;
+                    case 'h': s2 += "嗝嗝嗝嗝 "; break;
+                    case 'i': s2 += "嗝嗝 "; break;
+                    case 'j': s2 += "嗝咕咕咕 "; break;
+
+                    case 'k': s2 += "咕嗝咕 "; break;
+                    case 'l': s2 += "嗝咕嗝嗝 "; break;
+                    case 'm': s2 += "咕咕 "; break;
+                    case 'n': s2 += "咕嗝 "; break;
+                    case 'o': s2 += "咕咕咕 "; break;
+
+                    case 'p': s2 += "嗝咕咕嗝 "; break;
+                    case 'q': s2 += "咕咕嗝咕 "; break;
+                    case 'r': s2 += "嗝咕嗝 "; break;
+                    case 's': s2 += "嗝嗝嗝 "; break;
+                    case 't': s2 += "咕 "; break;
+
+                    case 'u': s2 += "嗝嗝咕 "; break;
+                    case 'v': s2 += "嗝嗝嗝咕 "; break;
+                    case 'w': s2 += "嗝咕咕 "; break;
+                    case 'x': s2 += "咕嗝嗝咕 "; break;
+                    case 'y': s2 += "咕嗝咕咕 "; break;
+                    case 'z': s2 += "咕咕嗝嗝 "; break;
+
+                    default: s2 += s1[i]; break;
+                }
+            }
+            document.getElementById("t2").value = s2;
+        }
+    </script>
 </body>
 </html>
