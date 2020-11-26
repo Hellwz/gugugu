@@ -6,55 +6,133 @@
     <title>咕咕语翻译器</title>
 </head>
 <body>
-    <textarea id="t1" rows="6" cols="30"></textarea>
-    <textarea id="t2" rows="6" cols="30"></textarea>
-    <button onclick="en2gu()">翻译</button>
+    <div>
+        <h4>英语（暂不支持中文）</h4>
+        <textarea id="t1" rows="6" cols="30"></textarea>
+        <button onclick="en2gu();en2miao()">翻译</button>
+    </div>
+    <div>
+        <h4>咕咕语</h4>
+        <textarea id="t2" rows="6" cols="30"></textarea>
+        <button onclick="gu2en();en2miao()">翻译</button>
+    </div>
+    <div>
+        <h4>喵喵语</h4>
+        <textarea id="t3" rows="6" cols="30"></textarea>
+        <button onclick="miao2en();en2gu()">翻译</button>
+    </div>
 
     <script lang="javascript">
+        var v1 = {
+        "a":"嗝咕","b":"咕嗝嗝嗝","c":"咕嗝咕嗝","d":"咕嗝嗝","e":"嗝",
+        "f":"嗝嗝咕嗝","g":"咕咕嗝","h":"嗝嗝嗝嗝","i":"嗝嗝","j":"嗝咕咕咕",
+        "k":"咕嗝咕","l":"嗝咕嗝嗝","m":"咕咕","n":"咕嗝","o":"咕咕咕",
+        "p":"嗝咕咕嗝","q":"咕咕嗝咕","r":"嗝咕嗝","s":"嗝嗝嗝","t":"咕",
+        "u":"嗝嗝咕","v":"嗝嗝嗝咕","w":"嗝咕咕","x":"咕嗝嗝咕","y":"咕嗝咕咕",
+        "z":"咕咕嗝嗝"};
+
+        var v2 = {
+        "嗝咕":"a","咕嗝嗝嗝":"b","咕嗝咕嗝":"c","咕嗝嗝":"d","嗝":"e",
+        "嗝嗝咕嗝":"f","咕咕嗝":"g","嗝嗝嗝嗝":"h","嗝嗝":"i","嗝咕咕咕":"j",
+        "咕嗝咕":"k","嗝咕嗝嗝":"l","咕咕":"m","咕嗝":"n","咕咕咕":"o",
+        "嗝咕咕嗝":"p","咕咕嗝咕":"q","嗝咕嗝":"r","嗝嗝嗝":"s","咕":"t",
+        "嗝嗝咕":"u","嗝嗝嗝咕":"v","嗝咕咕":"w","咕嗝嗝咕":"x","咕嗝咕咕":"y",
+        "咕咕嗝嗝":"z"};
+
+        var v3 = {
+        "a":"呜喵","b":"喵呜呜呜","c":"喵呜喵呜","d":"喵呜呜","e":"呜",
+        "f":"呜呜喵呜","g":"喵喵呜","h":"呜呜呜呜","i":"呜呜","j":"呜喵喵喵",
+        "k":"喵呜喵","l":"呜喵呜呜","m":"喵喵","n":"喵呜","o":"喵喵喵",
+        "p":"呜喵喵呜","q":"喵喵呜喵","r":"呜喵呜","s":"呜呜呜","t":"喵",
+        "u":"呜呜喵","v":"呜呜呜喵","w":"呜喵喵","x":"喵呜呜喵","y":"喵呜喵喵",
+        "z":"喵喵呜呜"};
+
+        var v4 = {
+        "呜喵":"a","喵呜呜呜":"b","喵呜喵呜":"c","喵呜呜":"d","呜":"e",
+        "呜呜喵呜":"f","喵喵呜":"g","呜呜呜呜":"h","呜呜":"i","呜喵喵喵":"j",
+        "喵呜喵":"k","呜喵呜呜":"l","喵喵":"m","喵呜":"n","喵喵喵":"o",
+        "呜喵喵呜":"p","喵喵呜喵":"q","呜喵呜":"r","呜呜呜":"s","喵":"t",
+        "呜呜喵":"u","呜呜呜喵":"v","呜喵喵":"w","喵呜呜喵":"x","喵呜喵喵":"y",
+        "喵喵呜呜":"z"};
+
         function en2gu()
         {
             var s1 = document.getElementById("t1").value;
             var s2 = "";
+            s1 = s1.toLowerCase();
             for (var i=0;i<s1.length;i++)
             {
-                switch (s1[i])
-                {
-                    case 'a': case 'A': s2 += "嗝咕 "; break;
-                    case 'b': s2 += "咕嗝嗝嗝 "; break;
-                    case 'c': s2 += "咕嗝咕嗝 "; break;
-                    case 'd': s2 += "咕嗝嗝 "; break;
-                    case 'e': s2 += "嗝 "; break;
-
-                    case 'f': s2 += "嗝嗝咕嗝 "; break;
-                    case 'g': s2 += "咕咕嗝 "; break;
-                    case 'h': s2 += "嗝嗝嗝嗝 "; break;
-                    case 'i': s2 += "嗝嗝 "; break;
-                    case 'j': s2 += "嗝咕咕咕 "; break;
-
-                    case 'k': s2 += "咕嗝咕 "; break;
-                    case 'l': s2 += "嗝咕嗝嗝 "; break;
-                    case 'm': s2 += "咕咕 "; break;
-                    case 'n': s2 += "咕嗝 "; break;
-                    case 'o': s2 += "咕咕咕 "; break;
-
-                    case 'p': s2 += "嗝咕咕嗝 "; break;
-                    case 'q': s2 += "咕咕嗝咕 "; break;
-                    case 'r': s2 += "嗝咕嗝 "; break;
-                    case 's': s2 += "嗝嗝嗝 "; break;
-                    case 't': s2 += "咕 "; break;
-
-                    case 'u': s2 += "嗝嗝咕 "; break;
-                    case 'v': s2 += "嗝嗝嗝咕 "; break;
-                    case 'w': s2 += "嗝咕咕 "; break;
-                    case 'x': s2 += "咕嗝嗝咕 "; break;
-                    case 'y': s2 += "咕嗝咕咕 "; break;
-                    case 'z': s2 += "咕咕嗝嗝 "; break;
-
-                    default: s2 += s1[i]; break;
-                }
+                if (s1[i]>='a' && s1[i]<='z') s2 += v1[s1[i]] + ' ';
+                else s2 += s1[i];
             }
             document.getElementById("t2").value = s2;
         }
+
+        function gu2en()
+        {
+            var s1 = "";
+            var s2 = document.getElementById("t2").value;
+            var s_tmp = "";
+            var flag = 0;
+            for (var i=0;i<s2.length;i++)
+            {
+                if (s2[i]=='咕' || s2[i]=='嗝') 
+                {
+                    s_tmp += s2[i];
+                    flag = 1;
+                }
+                else if (flag==1)
+                     {
+                          s1 += v2[s_tmp];
+                          flag = 0;
+                          s_tmp = "";
+                          if (s2[i] != ' ') s1 += s2[i];
+                     }
+                     else s1 += s2[i];
+            }
+            if (flag==1) s1 += v2[s_tmp];
+            document.getElementById("t1").value = s1;
+        }
+
+        function en2miao()
+        {
+            var s1 = document.getElementById("t1").value;
+            var s3 = "";
+            s1 = s1.toLowerCase();
+            for (var i=0;i<s1.length;i++)
+            {
+                if (s1[i]>='a' && s1[i]<='z') s3 += v3[s1[i]] + ' ';
+                else s3 += s1[i];
+            }
+            document.getElementById("t3").value = s3;
+        }
+
+        function miao2en()
+        {
+            var s1 = "";
+            var s3 = document.getElementById("t3").value;
+            var s_tmp = "";
+            var flag = 0;
+            for (var i=0;i<s3.length;i++)
+            {
+                if (s3[i]=='喵' || s3[i]=='呜') 
+                {
+                    s_tmp += s3[i];
+                    flag = 1;
+                }
+                else if (flag==1)
+                     {
+                          s1 += v4[s_tmp];
+                          flag = 0;
+                          s_tmp = "";
+                          if (s3[i] != ' ') s1 += s3[i];
+                     }
+                     else s1 += s3[i];
+            }
+            if (flag==1) s1 += v4[s_tmp];
+            document.getElementById("t1").value = s1;
+        }
+
     </script>
 </body>
 </html>
